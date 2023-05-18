@@ -41,7 +41,7 @@ const Login = () => {
                                     <input className="btn btn-primary" type="submit" value="Login" />
                                 </div>
                                 <label className="label">
-                                    <p className='label-text-alt '>Don't have an account? <Link to='/register' className="link link-hover">Register</Link> </p>
+                                    <p className='label-text-alt '>Don't have an account? <Link to='/signup' className="link link-hover">Register</Link> </p>
                                 </label>
                             </form>
                         </div>
