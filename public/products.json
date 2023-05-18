@@ -1,0 +1,68 @@
+[
+    {
+        "toy_name": "Zeep Wrangler",
+        "sub-category": "SUV",
+        "seller_name": "Anik",
+        "seller_email": "anik@gmail.com",
+        "img": "https://i.ibb.co/3dRKLNJ/zeep1.jpg",
+        "price": "20.55",
+        "description": "The '17 Jeep Wrangler is a customized truck made by Jeep thanks to the Diecast Staff Designer Phil Riehlman.",
+        "quantity": "140",
+        "rating": "4.5"
+    },
+    {
+        "toy_name": "Land Rover Defender",
+        "sub-category": "SUV",
+        "seller_name": "Anik",
+        "seller_email": "anik@gmail.com",
+        "img": "https://i.ibb.co/26bFdZc/zeep2.jpg",
+        "price": "27.67",
+        "description": "CkTech brings to you this die cast model toy car which is made from metal the toy car sports an original sports car look along with a 4 wheel drive. Three of the doors of the car can be opened which gives the car a realistic and sporty feel. The lower base plate and interiors of the car are made of plastic along with a smooth finish to give it a sporty look. Addition to Your Kid's Toy Collection The toy car is suitable for kids and can be a suitable addition to their toy car collection.",
+        "quantity": "140",
+        "rating": "4.5"
+    },
+    {
+        "toy_name": "Honda N360",
+        "sub-category": "Classic",
+        "seller_name": "Razib",
+        "seller_email": "razib@gmail.com",
+        "img": "https://i.ibb.co/CvcyxZ9/classic2.jpg",
+        "price": "35.00",
+        "description": "The Honda N360 is a small front-engine, front-wheel drive, two-passenger two-box automobile manufactured and marketed by Honda from March 1967 through 1970 in compliance with Japan's kei car regulations.",
+        "quantity": "100",
+        "rating": "5.0"
+    },
+    {
+        "toy_name": "Datsun 510",
+        "sub-category": "Classic",
+        "seller_name": "Anik",
+        "seller_email": "anik@gmail.com",
+        "img": "https://i.ibb.co/8cnbtT8/classic1.jpg",
+        "price": "12.99",
+        "description": "This 1971 Datsun 510 Hard Top is a 1/24 scale diecast model replica. It comes in yellow and features free wheel action, openable doors and hood, detailed interior and exterior . It's a fantastic addition for any classic car collection, and a must-have for ardent Datsun admirers!",
+        "quantity": "180",
+        "rating": "4.0"
+    },
+    {
+        "toy_name": "Porsche 993 GT2",
+        "sub-category": "Sports",
+        "seller_name": "Tamim",
+        "seller_email": "tamim@gmail.com",
+        "img": "https://i.ibb.co/Y7SBK3h/sports2.jpg",
+        "price": "12.99",
+        "description": "This premium Car Culture Assortment of 1:64 scale models is a must-have for adult collectors and enthusiasts around the world. Unique mixes highlight seeries vehicles featuring realistic castings, hot decos, and the wheels that aficionados appreciate.",
+        "quantity": "240",
+        "rating": "4.9"
+    },
+    {
+        "toy_name": "Ford GT40",
+        "sub-category": "Sports",
+        "seller_name": "Jim",
+        "seller_email": "jim@gmail.com",
+        "img": "https://i.ibb.co/6wR3Xmm/sports1.jpg",
+        "price": "40.22",
+        "description": "Shelby Collectibles produces many of the classic Shelby and Ford cars of the past. This series brings us highly detailed, very affordable die cast miniatures and some great subject matter too. These are die cast metal models with full opening features and detailed engines.",
+        "quantity": "215",
+        "rating": "4.5"
+    }
+]
