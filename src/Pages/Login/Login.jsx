@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import loginImg from '../../assets/login/login2.png'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
+    const [error, setError] = useState('');
+    const { logIn } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        
-        const user = {Email: email, Password: password}
-        console.log(user);
+
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('')
+            })
+            .catch(error => {
+                console.log(error.message);
+                setError(error.message)
+            })
     }
 
     return (
@@ -24,6 +37,7 @@ const Login = () => {
                     <div className="card flex-shrink-0 max-w-sm shadow-2xl bg-base-100 md:w-1/2">
                         <div className="card-body">
                             <h1 className="text-4xl font-bold">Login</h1>
+                            <p className='text-red-500'>{error}</p>
                             <form onSubmit={handleLogin}>
                                 <div className="form-control">
                                     <label className="label">
@@ -44,6 +58,7 @@ const Login = () => {
                                     <p className='label-text-alt '>Don't have an account? <Link to='/signup' className="link link-hover">Register</Link> </p>
                                 </label>
                             </form>
+                            <SocialLogin></SocialLogin>
                         </div>
                     </div>
                 </div>

@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo1.png'
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
     const navItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/allToys">All Toys</Link></li>
         <li><Link to="/blog">Blog</Link></li>
-        {/* {
-            user?.email ? <>
-                <li><Link to='/bookings'>My bookings</Link></li>
-                <li><Link onClick={handleLogOut}>LogOut</Link></li>
-            </> : <li><Link to="/login">Login</Link></li>
-        } */}
+        {
+            user?.email && <>
+                <li><Link to='/allToys'>Add Toys</Link></li>
+                <li><Link to='/myToys'>My Toys</Link></li>
+            </>
+        }
 
     </>
 
@@ -27,6 +38,9 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navItems}
+                            {
+                                user && <Link onClick={handleLogOut} className="btn btn-outline btn-primary">Log Out</Link> 
+                            }
                         </ul>
                     </div>
                     <Link>
@@ -36,10 +50,17 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navItems}
+                        {
+                            user && <Link onClick={handleLogOut} className="btn btn-outline btn-primary">Log Out</Link>
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="btn btn-outline btn-primary">Login</Link>
+                    {
+                        user ? 
+                        <img className='rounded-full w-16' src={user?.photoURL} alt="" /> : 
+                        <Link to='/login' className="btn btn-outline btn-primary">Login</Link>
+                    }
                 </div>
             </div>
         </div>
