@@ -21,7 +21,7 @@ const Navbar = () => {
         <li><Link to="/blog">Blog</Link></li>
         {
             user?.email && <>
-                <li><Link to='/allToys'>Add Toys</Link></li>
+                <li><Link to='/addToys'>Add Toys</Link></li>
                 <li><Link to='/myToys'>My Toys</Link></li>
             </>
         }

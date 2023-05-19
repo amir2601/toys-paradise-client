@@ -50,7 +50,7 @@ const AllToys = () => {
     return (
         <div>
             <div className="overflow-x-auto w-full space-y-5">
-                <h2 className='text-center text-4xl font-semibold text-primary'>All Toys</h2>
+                <h2 className='text-center text-4xl font-semibold text-primary hidden md:flex justify-center'>All Toys</h2>
                 <table className="table w-full">
                     {/* head */}
                     <thead>
@@ -76,7 +76,9 @@ const AllToys = () => {
                     </tbody>
                 </table>
                 {
-                    toys.length <= visible ? '' : <button onClick={showAllToys}>See More</button>
+                    toys.length <= visible ? '' : <div className='text-center'>
+                        <button onClick={showAllToys} className="btn btn-outline btn-primary">See More</button>
+                    </div>
                 }
             </div>
         </div>
