@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import loginImg from '../../assets/login/login2.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Login = () => {
     const [error, setError] = useState('');
     const { logIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = event => {
         event.preventDefault();
@@ -20,6 +23,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('')
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 console.log(error.message);

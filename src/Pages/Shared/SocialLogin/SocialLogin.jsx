@@ -2,15 +2,20 @@ import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const { googleLogin } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || '/'
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, {replace: true})
             })
             .catch(error => {
                 console.log(error.message);
