@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2'
-import { useLoaderData } from 'react-router-dom';
 import AllToysRow from './AllToysRow';
 
 const AllToys = () => {

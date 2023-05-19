@@ -9,47 +9,50 @@ import AllToys from '../Pages/AllToys/AllToys';
 import MyToys from '../Pages/MyToys/MyToys';
 import AddToys from '../Pages/AddToys/AddToys';
 import ToyDetails from '../Pages/ToyDetails/ToyDetails';
+import PrivateRoutes from './PrivateRoutes';
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-          path: '/login',
-          element: <Login></Login>
-        },
-        {
-          path: '/signup',
-          element: <Register></Register>
-        },
-        {
-          path: '/blog',
-          element: <Blog></Blog>
-        },
-        {
-          path: '/allToys',
-          element: <AllToys></AllToys>
-        },
-        {
-          path: '/Toy/:id',
-          element: <ToyDetails></ToyDetails>,
-          loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
-        },
-        {
-          path: '/myToys',
-          element: <MyToys></MyToys>
-        },
-        {
-          path: '/addToys',
-          element: <AddToys></AddToys>
-        }
-      ]
-    }
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: '/',
+        element: <Home></Home>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/signup',
+        element: <Register></Register>
+      },
+      {
+        path: '/blog',
+        element: <Blog></Blog>
+      },
+      {
+        path: '/allToys',
+        element: <AllToys></AllToys>
+      },
+      {
+        path: '/Toy/:id',
+        element: <PrivateRoutes>
+          <ToyDetails></ToyDetails>
+        </PrivateRoutes>,
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`)
+      },
+      {
+        path: '/myToys',
+        element: <MyToys></MyToys>
+      },
+      {
+        path: '/addToys',
+        element: <AddToys></AddToys>
+      }
+    ]
+  }
+]);
 
 export default router;

@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const AllToysRow = ({ toy, handleDelete }) => {
     const { _id, img, toy_name, sub_category, seller_name, seller_email, price, quantity } = toy;
+    const {user} = useContext(AuthContext);
 
-
+    const handleSweet = () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'You have to log in first to view details',
+          })
+        }
     return (
         <tr>
             <th>
@@ -31,7 +40,9 @@ const AllToysRow = ({ toy, handleDelete }) => {
             <td>$ {price}</td>
             <td className='text-center'>{quantity}</td>
             <th>
-                <Link to={`/toy/${_id}`} className="btn btn-ghost btn-sm">details</Link>
+                {
+                    user ? <Link to={`/toy/${_id}`} className="btn btn-ghost btn-sm">details</Link> : <Link onClick={handleSweet} to={`/toy/${_id}`} className="btn btn-ghost btn-sm">details</Link>
+                }
             </th>
         </tr>
     );
