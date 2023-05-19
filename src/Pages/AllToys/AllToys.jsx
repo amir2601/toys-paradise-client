@@ -1,11 +1,46 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 import { useLoaderData } from 'react-router-dom';
 import AllToysRow from './AllToysRow';
 
 const AllToys = () => {
-
     const toys = useLoaderData();
-    console.log(toys);
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                )
+                fetch(`http://localhost:5000/allToys/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your work has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        }
+                    })
+            }
+        })
+    }
 
     return (
         <div>
@@ -22,7 +57,7 @@ const AllToys = () => {
                             <th>Sub Category</th>
                             <th>Price</th>
                             <th>Available Quantity</th>
-                            <th></th>
+                            <th>Details</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +65,7 @@ const AllToys = () => {
                             toys.map(toy => <AllToysRow
                                 key={toy._id}
                                 toy={toy}
+                                handleDelete={handleDelete}
                             ></AllToysRow>)
                         }
                     </tbody>
