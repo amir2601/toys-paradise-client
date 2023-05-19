@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Swal from 'sweetalert2'
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const AddToys = () => {
@@ -7,28 +8,49 @@ const AddToys = () => {
     const handleAddToy = event => {
         event.preventDefault();
         const form = event.target;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.email.value;
-        const photo = form.photo.value;
-        const toyName = form.toyName.value;
-        const category = form.category.value;
+        const seller_name = form.sellerName.value;
+        const seller_email = form.email.value;
+        const img = form.photo.value;
+        const toy_name = form.toyName.value;
+        const sub_category = form.category.value;
         const quantity = form.quantity.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const description = form.description.value;
 
         const newToy = {
-            sellerName,
-            sellerEmail,
-            photo,
-            toyName,
-            category,
+            seller_name,
+            seller_email,
+            img,
+            toy_name,
+            sub_category,
             quantity,
             price,
             rating,
             description
         }
         console.log(newToy);
+
+        fetch(`http://localhost:5000/allToys`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newToy)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your toy has been added',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
     }
 
     return (
