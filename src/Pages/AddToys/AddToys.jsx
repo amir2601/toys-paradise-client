@@ -119,7 +119,7 @@ const AddToys = () => {
                         <textarea className='input input-bordered' name="description" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Login</button>
+                        <button className="btn btn-primary">Add Toy</button>
                     </div>
                 </form>
             </div>

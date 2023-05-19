@@ -16,36 +16,6 @@ const AllToys = () => {
             .then(data => setToys(data))
     }, [])
 
-    const handleDelete = id => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Toy has been deleted',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                fetch(`http://localhost:5000/allToys/${id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        const remaining = toys.filter(toy => toy._id !== id);
-                        setToys(remaining)
-                    })
-            }
-        })
-    }
-
     return (
         <div>
             <div className="overflow-x-auto w-full space-y-5">
@@ -54,7 +24,6 @@ const AllToys = () => {
                     {/* head */}
                     <thead>
                         <tr>
-                            <th>Remove</th>
                             <th>Toy Picture</th>
                             <th>Toy Name</th>
                             <th>Seller Name & Email</th>
@@ -69,7 +38,6 @@ const AllToys = () => {
                             toys.slice(0, visible).map(toy => <AllToysRow
                                 key={toy._id}
                                 toy={toy}
-                                handleDelete={handleDelete}
                             ></AllToysRow>)
                         }
                     </tbody>
