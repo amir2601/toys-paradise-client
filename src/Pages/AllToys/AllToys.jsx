@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2'
 import { useLoaderData } from 'react-router-dom';
 import AllToysRow from './AllToysRow';
 
 const AllToys = () => {
-    const toys = useLoaderData();
+    const [toys, setToys] = useState([]);
+    const [visible, setVisible] = useState(20);
+
+    const showAllToys = () => {
+        setVisible((previousValue) => previousValue + 20)
+    }
+
+    useEffect(() => {
+        fetch('http://localhost:5000/allToys')
+            .then(res => res.json())
+            .then(data => setToys(data))
+    }, [])
 
     const handleDelete = id => {
         Swal.fire({
@@ -17,26 +28,20 @@ const AllToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Toy has been deleted',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 fetch(`http://localhost:5000/allToys/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
-                        if (data.deletedCount > 0) {
-                            Swal.fire({
-                                position: 'center',
-                                icon: 'success',
-                                title: 'Your work has been saved',
-                                showConfirmButton: false,
-                                timer: 1500
-                            })
-                        }
+                        const remaining = toys.filter(toy => toy._id !== id);
+                        setToys(remaining)
                     })
             }
         })
@@ -62,7 +67,7 @@ const AllToys = () => {
                     </thead>
                     <tbody>
                         {
-                            toys.map(toy => <AllToysRow
+                            toys.slice(0, visible).map(toy => <AllToysRow
                                 key={toy._id}
                                 toy={toy}
                                 handleDelete={handleDelete}
@@ -70,6 +75,9 @@ const AllToys = () => {
                         }
                     </tbody>
                 </table>
+                {
+                    toys.length <= visible ? '' : <button onClick={showAllToys}>See More</button>
+                }
             </div>
         </div>
     );
