@@ -4,6 +4,8 @@ import AllToysRow from './AllToysRow';
 const AllToys = () => {
     const [toys, setToys] = useState([]);
     const [visible, setVisible] = useState(20);
+    const [searchText, setSearchText] = useState('')
+
 
     const showAllToys = () => {
         setVisible((previousValue) => previousValue + 20)
@@ -15,10 +17,23 @@ const AllToys = () => {
             .then(data => setToys(data))
     }, [])
 
+    const handleSearch = () => {
+        fetch(`http://localhost:5000/toySearch/${searchText}`)
+            .then(res => res.json())
+            .then(data => {
+                setToys(data);
+            })
+    }
+
+    console.log(searchText);
     return (
         <div>
             <div className="overflow-x-auto w-full space-y-5">
                 <h2 className='text-center text-4xl font-semibold text-primary hidden md:flex justify-center'>All Toys</h2>
+                <div className="text-center flex gap-2 justify-center">
+                    <input onChange={(e) => setSearchText(e.target.value)} type="text" placeholder="Search" className="input input-bordered" />
+                    <input onClick={handleSearch} className='btn btn-outline' type="submit" value="Search" />
+                </div>
                 <table className="table w-full">
                     {/* head */}
                     <thead>
