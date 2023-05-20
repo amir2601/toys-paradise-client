@@ -5,7 +5,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
-    const { user } = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
     useEffect(() => {
         fetch(`https://toys-paradise-server.vercel.app/myToys?email=${user?.email}`)
@@ -43,29 +43,11 @@ const MyToys = () => {
         })
     }
 
-    const handleSort = (event) => {
-        console.log(event.target.value);
-        const selected = event.target.value;
-        fetch(`https://toys-paradise-server.vercel.app/myToys?sort=${selected}&email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setToys(data))
-    }
-
     return (
         <div>
             <div>
                 <div className="overflow-x-auto w-full space-y-5">
                     <h2 className='text-center text-4xl font-semibold text-primary hidden md:flex justify-center'>My Toys</h2>
-                    <div className='flex items-center gap-5'>
-                        <select
-                            onChange={handleSort}
-                            className='btn btn-outline ml-4'
-                        >
-                            <option>Ascendeing</option>
-                            <option>Descendeing</option>
-                        </select>
-                        <h2 className='text-lg font-semibold'>Sort By</h2>
-                    </div>
                     <table className="table w-full">
                         {/* head */}
                         <thead>
