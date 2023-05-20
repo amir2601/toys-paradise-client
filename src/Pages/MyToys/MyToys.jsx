@@ -8,7 +8,7 @@ const MyToys = () => {
     const {user} = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys?email=${user?.email}`)
+        fetch(`https://toys-paradise-server.vercel.app/myToys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
@@ -31,7 +31,7 @@ const MyToys = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
-                fetch(`http://localhost:5000/allToys/${id}`, {
+                fetch(`https://toys-paradise-server.vercel.app/allToys/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

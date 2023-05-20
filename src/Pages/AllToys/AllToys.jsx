@@ -11,7 +11,7 @@ const AllToys = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/allToys')
+        fetch('https://toys-paradise-server.vercel.app/allToys')
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])

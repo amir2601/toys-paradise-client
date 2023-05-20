@@ -22,7 +22,7 @@ const UpdateToy = () => {
         }
         console.log(updateToy);
 
-        fetch(`http://localhost:5000/myToys/${_id}`, {
+        fetch(`https://toys-paradise-server.vercel.app/myToys/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
