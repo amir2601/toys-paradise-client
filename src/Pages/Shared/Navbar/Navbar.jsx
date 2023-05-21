@@ -58,7 +58,9 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ? 
-                        <img className='rounded-full w-16' src={user?.photoURL} alt="" /> : 
+                        <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
+                            <img className='rounded-full w-16' src={user?.photoURL} alt="" />
+                        </div> : 
                         <Link to='/login' className="btn btn-outline btn-primary">Login</Link>
                     }
                 </div>

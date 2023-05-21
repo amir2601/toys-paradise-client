@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const ToysByCategoryRow = ({ toy }) => {
-    const { _id, img, toy_name, sub_category, seller_name, seller_email, price, quantity } = toy;
+    const { _id, img, toy_name, sub_category, seller_name, seller_email, price, rating } = toy;
     const { user } = useContext(AuthContext);
 
     const handleSweet = () => {
@@ -27,14 +27,8 @@ const ToysByCategoryRow = ({ toy }) => {
             <td>
                 <h4 className="font-bold">{toy_name}</h4>
             </td>
-            <td>
-                {seller_name}
-                <br />
-                <span className="badge badge-ghost badge-sm">{seller_email}</span>
-            </td>
-            <td>{sub_category}</td>
             <td>$ {price}</td>
-            <td className='text-center'>{quantity}</td>
+            <td>{rating}</td>
             <th>
                 {
                     user ? <Link to={`/toy/${_id}`} className="btn btn-ghost btn-sm">details</Link> : <Link onClick={handleSweet} to={`/toy/${_id}`} className="btn btn-ghost btn-sm">details</Link>

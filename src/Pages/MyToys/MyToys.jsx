@@ -5,13 +5,31 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
-    const {user} = useContext(AuthContext)
+    const [sortOrder, setSortOrder] = useState('asc');
+    const { user } = useContext(AuthContext)
 
     useEffect(() => {
-        fetch(`https://toys-paradise-server.vercel.app/myToys?email=${user?.email}`)
-            .then(res => res.json())
-            .then(data => setToys(data))
-    }, [])
+        fetchData();
+    }, [sortOrder]);
+
+    const fetchData = async () => {
+        try {
+            const url = `https://toys-paradise-server.vercel.app/myToys?email=${user?.email}&sort=${sortOrder}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            setToys(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    const handleSortAscending = () => {
+        setSortOrder('asc');
+    };
+
+    const handleSortDescending = () => {
+        setSortOrder('desc');
+    };
 
     const handleDelete = id => {
         Swal.fire({
@@ -48,6 +66,12 @@ const MyToys = () => {
             <div>
                 <div className="overflow-x-auto w-full space-y-5">
                     <h2 className='text-center text-4xl font-semibold text-primary hidden md:flex justify-center'>My Toys</h2>
+                    <div className="text-center flex items-center justify-center">
+                        <h2 className='text-lg font-bold text-primary'>Sort By</h2>
+                        <button className="btn mx-3" onClick={handleSortAscending}>Ascending</button>
+                        <button className="btn mx-3" onClick={handleSortDescending}>Descending</button>
+                        {/* Render the toy list */}
+                    </div>
                     <table className="table w-full">
                         {/* head */}
                         <thead>

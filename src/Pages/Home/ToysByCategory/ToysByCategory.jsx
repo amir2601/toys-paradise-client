@@ -17,8 +17,6 @@ const ToysByCategory = () => {
 
   const filteredToys = toys.filter(toy => toy.sub_category === activeTab);
   console.log(filteredToys);
-//   console.log(toys);
-  console.log(activeTab);
 
   return (
     <div>
@@ -53,10 +51,8 @@ const ToysByCategory = () => {
             <tr>
               <th>Toy Picture</th>
               <th>Toy Name</th>
-              <th>Seller Name & Email</th>
-              <th>Sub Category</th>
               <th>Price</th>
-              <th>Available Quantity</th>
+              <th>Rating</th>
               <th>Details</th>
             </tr>
           </thead>

@@ -29,7 +29,7 @@ const Footer = () => {
             <footer className="footer px-10 py-4 border-t bg-accent text-base-content border-base-300">
                 <div className="items-center grid-flow-col">
                     <img src={logo} alt="" />
-                    <p>TOY PARADISE <br />Providing best toys since 2022</p>
+                    <p>TOY PARADISE <br />© Copyright 2023-2025 All Rights Reserved.</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">
