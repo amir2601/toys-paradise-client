@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaFacebookF,FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import logo from '../../../assets/logo1.png'
 
 const Footer = () => {
@@ -32,10 +33,10 @@ const Footer = () => {
                     <p>TOY PARADISE <br />© Copyright 2023-2025 All Rights Reserved.</p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
-                    <div className="grid grid-flow-col gap-4">
-                        <p>F</p>
-                        <p>I</p>
-                        <p>L</p>
+                    <div className="grid grid-flow-col gap-4 text-xl">
+                        <a href="https://www.facebook.com/riad.vai.2601" target='_blank'><FaFacebookF></FaFacebookF></a>
+                        <a href="https://www.instagram.com/amir_hossin_.riad/" target='_blank'><FaInstagram></FaInstagram></a>
+                        <a href="https://www.linkedin.com/in/amir-hossin-riad/" target='_blank'><FaLinkedinIn></FaLinkedinIn></a>
                     </div>
                 </div>
             </footer>

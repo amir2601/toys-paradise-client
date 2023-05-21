@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { AuthContext } from '../../../Provider/AuthProvider';
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const SocialLogin = () => {
     const { googleLogin } = useContext(AuthContext);
