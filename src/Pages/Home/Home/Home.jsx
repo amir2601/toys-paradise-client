@@ -6,8 +6,11 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import WeOffer from '../WeOffer/WeOffer';
 import Faq from '../Faq/Faq';
+import useTitle from '../../../Hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
+
     useEffect(() => {
         AOS.init();
     }, []);

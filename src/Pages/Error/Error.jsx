@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 
 const Error = () => {
+    useTitle('Error');
     return (
         <div>
             <div className="bg-indigo-900 relative overflow-hidden h-screen">

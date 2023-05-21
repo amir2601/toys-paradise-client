@@ -3,9 +3,11 @@ import SignUpImg from '../../assets/login/signup.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import SocialLogin from '../Shared/SocialLogin/SocialLogin';
+import useTitle from '../../Hooks/useTitle';
 
 
 const Register = () => {
+    useTitle('Register');
     const [error, setError] = useState('')
     const { createUser } = useContext(AuthContext);
 

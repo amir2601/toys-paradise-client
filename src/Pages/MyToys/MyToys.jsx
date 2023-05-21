@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Provider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
     const [sortOrder, setSortOrder] = useState('asc');
     const { user } = useContext(AuthContext)
+    useTitle('My Toys');
 
     useEffect(() => {
         fetchData();
