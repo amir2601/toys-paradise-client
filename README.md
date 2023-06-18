@@ -23,3 +23,4 @@
 
 ## Footer
 * The footer part is also made in such a way that it can be seen on all pages.  Can't be seen on error page only.
+# toys-paradise-client

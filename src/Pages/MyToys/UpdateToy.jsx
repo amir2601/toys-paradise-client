@@ -1,6 +1,5 @@
 import React from 'react';
 import Swal from 'sweetalert2'
-import { AuthContext } from '../../Provider/AuthProvider';
 import { useLoaderData } from 'react-router-dom';
 import useTitle from '../../Hooks/useTitle';
 
