@@ -55,20 +55,20 @@ const UpdateToy = () => {
                             <label className="label">
                                 <span className="label-text">Price</span>
                             </label>
-                            <input type="text" placeholder="Price" name='price' className="input input-bordered" />
+                            <input type="text" placeholder="Price" name='price' className="input input-bordered" defaultValue={toy.price} />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Available Quantity</span>
                             </label>
-                            <input type="text" placeholder="Available Quantity" name='quantity' className="input input-bordered" />
+                            <input type="text" placeholder="Available Quantity" name='quantity' className="input input-bordered" defaultValue={toy.quantity} />
                         </div>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Detail Description</span>
                         </label>
-                        <textarea className='input input-bordered' name="description" id="" cols="30" rows="10"></textarea>
+                        <textarea className='input input-bordered' name="description" id="" cols="30" rows="10" defaultValue={toy.description}></textarea>
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Update</button>
