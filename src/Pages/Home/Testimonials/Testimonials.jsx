@@ -18,7 +18,7 @@ const Testimonials = () => {
                         <br />
                         <span className='text-gray-500'>Toys Paradise delivers fun-filled excitement! Amazing selection, happy kids—pure delight.</span>
                     </p>
-                    <button className='btn btn-outline btn-xs'><a href="https://www.facebook.com/jimisnotyours" target='_blank'>View Profile</a></button>
+                    <button className='btn btn-outline btn-xs'><a href="https://www.facebook.com/Bossazid" target='_blank'>View Profile</a></button>
                 </div>
 
                 {/* Fahim */}
