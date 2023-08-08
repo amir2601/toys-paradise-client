@@ -2,8 +2,8 @@ import React from 'react';
 
 const WeOffer = () => {
     return (
-        <div className='my-8'>
-            <h2 className='text-3xl font-bold text-center'>We Offer</h2>
+        <div className='my-8 px-4 md:px-0'>
+            <h2 className='text-3xl font-semibold text-center'>We <span className='text-purple-400'>Offer</span></h2>
             <hr className='my-3' />
 
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 text-center'>

@@ -7,6 +7,7 @@ import 'aos/dist/aos.css';
 import WeOffer from '../WeOffer/WeOffer';
 import Faq from '../Faq/Faq';
 import useTitle from '../../../Hooks/useTitle';
+import Testimonials from '../Testimonials/Testimonials';
 
 const Home = () => {
     useTitle('Home');
@@ -25,6 +26,9 @@ const Home = () => {
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <WeOffer></WeOffer>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                <Testimonials></Testimonials>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <Faq></Faq>

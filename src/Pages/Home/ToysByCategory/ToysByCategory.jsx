@@ -21,24 +21,24 @@ const ToysByCategory = () => {
   return (
     <div>
       <div className="overflow-x-auto w-full space-y-5">
-        <h2 className="text-center text-4xl font-semibold text-primary hidden md:flex justify-center">Shop By Category</h2>
+        <h2 className="text-center text-3xl font-semibold hidden md:flex justify-center">Toys By <span className='text-purple-400'>Category</span></h2>
 
         {/* Tabs */}
         <div className="flex justify-center space-x-4">
           <button
-            className={`border-b-2 border-transparent btn focus:outline-none ${activeTab === 'suv' ? 'btn-warning' : 'btn-primary'}`}
+            className={`border-b-2 btn-sm border-transparent btn focus:outline-none ${activeTab === 'suv' ? 'btn-warning' : 'btn-primary'}`}
             onClick={() => handleTabClick('suv')}
           >
             SUV
           </button>
           <button
-            className={`border-b-2 border-transparent btn focus:outline-none ${activeTab === 'classic' ? 'btn-warning' : 'btn-primary'}`}
+            className={`border-b-2 btn-sm border-transparent btn focus:outline-none ${activeTab === 'classic' ? 'btn-warning' : 'btn-primary'}`}
             onClick={() => handleTabClick('classic')}
           >
             Classic
           </button>
           <button
-            className={`border-b-2 border-transparent btn focus:outline-none ${activeTab === 'sports' ? 'btn-warning' : 'btn-primary'}`}
+            className={`border-b-2 btn-sm border-transparent btn focus:outline-none ${activeTab === 'sports' ? 'btn-warning' : 'btn-primary'}`}
             onClick={() => handleTabClick('sports')}
           >
             Sports
