@@ -23,13 +23,17 @@ const SocialLogin = () => {
     }
 
     return (
-        <div>
-            <div className="divider">OR</div>
-            <div className='text-center flex gap-4 justify-center'>
-                <button onClick={handleGoogleLogin} className="btn btn-circle btn-primary btn-outline">
+        <div className='mt-6'>
+            <div className="flex items-center gap-4">
+                <span className='h-px flex-1 bg-base-300'></span>
+                <span className='text-xs font-semibold uppercase tracking-widest text-slate-400'>OR</span>
+                <span className='h-px flex-1 bg-base-300'></span>
+            </div>
+            <div className='mt-5 flex justify-center gap-4'>
+                <button type='button' onClick={handleGoogleLogin} className="btn btn-circle border-base-300 bg-base-100 text-slate-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary">
                     <FaGoogle></FaGoogle>
                 </button>
-                <button className="btn btn-circle btn-primary btn-outline">
+                <button type='button' className="btn btn-circle border-base-300 bg-base-100 text-slate-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary">
                     <FaGithub></FaGithub>
                 </button>
             </div>

@@ -46,34 +46,40 @@ const UpdateToy = () => {
     }
 
     return (
-        <div>
-            <h2>Add Toys</h2>
-            <div className="card-body">
-                <form onSubmit={handleUpdateToy}>
-                    <div className='grid grid-cols-2 gap-4'>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Price</span>
-                            </label>
-                            <input type="text" placeholder="Price" name='price' className="input input-bordered" defaultValue={toy.price} />
+        <div className='container-x section'>
+            <div className='mx-auto max-w-3xl'>
+                <div className='mb-8 text-center'>
+                    <span className='eyebrow'>Keep it fresh</span>
+                    <h2 className='section-title mt-3'>Update Toy</h2>
+                </div>
+
+                <div className="card-surface p-6 sm:p-8">
+                    <form onSubmit={handleUpdateToy}>
+                        <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Price
+                                </label>
+                                <input type="text" placeholder="Price" name='price' className="field-input" defaultValue={toy.price} />
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Available Quantity
+                                </label>
+                                <input type="text" placeholder="Available Quantity" name='quantity' className="field-input" defaultValue={toy.quantity} />
+                            </div>
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Available Quantity</span>
+                        <div className="form-control mt-5">
+                            <label className="field-label">
+                                Detail Description
                             </label>
-                            <input type="text" placeholder="Available Quantity" name='quantity' className="input input-bordered" defaultValue={toy.quantity} />
+                            <textarea className='field-input resize-y' name="description" id="" cols="30" rows="6" defaultValue={toy.description}></textarea>
                         </div>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Detail Description</span>
-                        </label>
-                        <textarea className='input input-bordered' name="description" id="" cols="30" rows="10" defaultValue={toy.description}></textarea>
-                    </div>
-                    <div className="form-control mt-6">
-                        <button className="btn btn-primary">Update</button>
-                    </div>
-                </form>
+                        <div className="form-control mt-7">
+                            <button className="btn btn-primary btn-pill w-full py-3 shadow-lg shadow-primary/25 sm:w-auto sm:px-10">Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     );

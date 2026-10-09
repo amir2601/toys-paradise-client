@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
-import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2'
 import { AuthContext } from '../../Provider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
+import ProductCard from '../Shared/ProductCard/ProductCard';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
@@ -64,41 +64,39 @@ const MyToys = () => {
     }
 
     return (
-        <div>
-            <div>
-                <div className="overflow-x-auto w-full space-y-5">
-                    <h2 className='text-center text-4xl font-semibold text-primary hidden md:flex justify-center'>My Toys</h2>
-                    <div className="text-center flex items-center justify-center">
-                        <h2 className='text-lg font-bold text-primary'>Sort By</h2>
-                        <button className="btn mx-3" onClick={handleSortAscending}>Ascending</button>
-                        <button className="btn mx-3" onClick={handleSortDescending}>Descending</button>
-                        {/* Render the toy list */}
-                    </div>
-                    <table className="table w-full">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>Remove</th>
-                                <th>Toy Picture</th>
-                                <th>Toy Name</th>
-                                <th>Seller Name & Email</th>
-                                <th>Sub Category</th>
-                                <th>Price</th>
-                                <th>Available Quantity</th>
-                                <th>Update</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                toys.map(toy => <MyToysRow
-                                    key={toy._id}
-                                    toy={toy}
-                                    handleDelete={handleDelete}
-                                ></MyToysRow>)
-                            }
-                        </tbody>
-                    </table>
+        <div className='container-x section'>
+            <div className="space-y-8">
+                <div className='text-center'>
+                    <span className='eyebrow'>Your inventory</span>
+                    <h2 className='section-title mt-3'>My Toys</h2>
+                    <p className='mx-auto mt-2 max-w-md text-sm text-slate-500'>Manage, update and remove the toys you have listed.</p>
                 </div>
+
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                    <h2 className='text-sm font-bold uppercase tracking-widest text-slate-500'>Sort By</h2>
+                    <button className="btn btn-pill border border-base-300 bg-base-100 text-slate-600 hover:border-primary hover:text-primary" onClick={handleSortAscending}>Ascending</button>
+                    <button className="btn btn-pill border border-base-300 bg-base-100 text-slate-600 hover:border-primary hover:text-primary" onClick={handleSortDescending}>Descending</button>
+                </div>
+
+                {
+                    toys.length === 0
+                        ? <div className='card-surface grid place-items-center p-16 text-center text-slate-400'>
+                            <p className='text-4xl'>🧸</p>
+                            <p className='mt-3'>You have not added any toys yet.</p>
+                        </div>
+                        : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                            {
+                                toys.map(toy => (
+                                    <ProductCard
+                                        key={toy._id}
+                                        toy={toy}
+                                        onDelete={handleDelete}
+                                        updateLink={`/myToys/${toy._id}`}
+                                    />
+                                ))
+                            }
+                        </div>
+                }
             </div>
         </div>
     );

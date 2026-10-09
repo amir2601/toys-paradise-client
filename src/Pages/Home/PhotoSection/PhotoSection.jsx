@@ -60,15 +60,28 @@ const PhotoSection = () => {
     };
 
     return (
-        <div className='my-8'>
-            <Slider {...settings}>
-                {images.map((image, index) => (
-                    <div key={index} className="px-2">
-                        <img src={image} alt={`Image ${index + 1}`} className="w-full h-auto max-w-xs mx-auto rounded-lg" />
-                    </div>
-                ))}
-            </Slider>
-        </div>
+        <section className='section'>
+            <div className='mb-8 text-center'>
+                <span className='eyebrow'>Gallery</span>
+                <h2 className='section-title mt-3'>Our <span className='text-gradient'>Happy Moments</span></h2>
+            </div>
+            <div className='-mx-2'>
+                <Slider {...settings}>
+                    {images.map((image, index) => (
+                        <div key={index} className="px-2">
+                            <div className='group relative overflow-hidden rounded-2xl shadow-card'>
+                                <img
+                                    src={image}
+                                    alt={`Image ${index + 1}`}
+                                    className="h-52 w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                />
+                                <div className='absolute inset-0 bg-gradient-to-t from-violet-900/60 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100'></div>
+                            </div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>
+        </section>
     );
 };
 

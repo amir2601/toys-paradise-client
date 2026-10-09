@@ -56,74 +56,80 @@ const AddToys = () => {
     }
 
     return (
-        <div>
-            <h2>Add Toys</h2>
-            <div className="card-body">
-                <form onSubmit={handleAddToy}>
-                    <div className='grid grid-cols-2 gap-4'>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Seller Name</span>
-                            </label>
-                            <input type="text" placeholder="Seller Name" name='sellerName' className="input input-bordered" defaultValue={user?.displayName}/>
+        <div className='container-x section'>
+            <div className='mx-auto max-w-3xl'>
+                <div className='mb-8 text-center'>
+                    <span className='eyebrow'>Share your collection</span>
+                    <h2 className='section-title mt-3'>Add Toys</h2>
+                </div>
+
+                <div className="card-surface p-6 sm:p-8">
+                    <form onSubmit={handleAddToy}>
+                        <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Seller Name
+                                </label>
+                                <input type="text" placeholder="Seller Name" name='sellerName' className="field-input" defaultValue={user?.displayName}/>
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Seller Email
+                                </label>
+                                <input type="email" placeholder="Seller Email" name='email' className="field-input" defaultValue={user?.email}/>
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Image URL
+                                </label>
+                                <input type="text" placeholder="Image URL" name='photo' className="field-input" />
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Toy Name
+                                </label>
+                                <input type="text" placeholder="Toy Name" name='toyName' className="field-input" />
+                            </div>
+                            <div className="form-control w-full">
+                                <label className="field-label">
+                                    Sub Category
+                                </label>
+                                <select className="field-input capitalize" name='category'>
+                                    <option value='suv'>SUV</option>
+                                    <option value='classic'>Classic</option>
+                                    <option value='sports'>Sports</option>
+                                </select>
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Available Quantity
+                                </label>
+                                <input type="text" placeholder="Available Quantity" name='quantity' className="field-input" />
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Price
+                                </label>
+                                <input type="text" placeholder="Price" name='price' className="field-input" />
+                            </div>
+                            <div className="form-control">
+                                <label className="field-label">
+                                    Rating
+                                </label>
+                                <input type="text" placeholder="Rating" name='rating' className="field-input" />
+                            </div>
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Seller Email</span>
+                        <div className="form-control mt-5">
+                            <label className="field-label">
+                                Detail Description
                             </label>
-                            <input type="email" placeholder="Seller Email" name='email' className="input input-bordered" defaultValue={user?.email}/>
+                            <textarea className='field-input resize-y' name="description" id="" cols="30" rows="6"></textarea>
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Image URL</span>
-                            </label>
-                            <input type="text" placeholder="Image URL" name='photo' className="input input-bordered" />
+                        <div className="form-control mt-7">
+                            <button className="btn btn-primary btn-pill w-full py-3 shadow-lg shadow-primary/25 sm:w-auto sm:px-10">Add Toy</button>
                         </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Toy Name</span>
-                            </label>
-                            <input type="text" placeholder="Toy Name" name='toyName' className="input input-bordered" />
-                        </div>
-                        <div className="form-control w-full">
-                            <label className="label">
-                                <span className="label-text">Sub Category</span>
-                            </label>
-                            <select className="select select-bordered" name='category'>
-                                <option>suv</option>
-                                <option>classic</option>
-                                <option>sports</option>
-                            </select>
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Available Quantity</span>
-                            </label>
-                            <input type="text" placeholder="Available Quantity" name='quantity' className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Price</span>
-                            </label>
-                            <input type="text" placeholder="Price" name='price' className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Rating</span>
-                            </label>
-                            <input type="text" placeholder="Rating" name='rating' className="input input-bordered" />
-                        </div>
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Detail Description</span>
-                        </label>
-                        <textarea className='input input-bordered' name="description" id="" cols="30" rows="10"></textarea>
-                    </div>
-                    <div className="form-control mt-6">
-                        <button className="btn btn-primary">Add Toy</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     );

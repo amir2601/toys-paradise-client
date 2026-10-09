@@ -1,38 +1,54 @@
 import React from 'react';
 
 const WeOffer = () => {
-    return (
-        <div className='my-8 px-4 md:px-0'>
-            <h2 className='text-3xl font-semibold text-center'>We <span className='text-purple-400'>Offer</span></h2>
-            <hr className='my-3' />
+    const offers = [
+        {
+            icon: "https://i.ibb.co/zGkdbBT/best.png",
+            title: 'Best Service',
+            tint: 'from-violet-500/15 to-violet-500/0',
+        },
+        {
+            icon: "https://i.ibb.co/QMcGs4c/value.png",
+            title: 'Value For Money Product',
+            tint: 'from-amber-400/20 to-amber-400/0',
+        },
+        {
+            icon: "https://i.ibb.co/P1gjQSy/material.png",
+            title: 'High Quality Material',
+            tint: 'from-rose-400/15 to-rose-400/0',
+        },
+        {
+            icon: "https://i.ibb.co/JRBzFvQ/support.png",
+            title: '24/7 Customer Support',
+            tint: 'from-sky-400/15 to-sky-400/0',
+        },
+    ];
 
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-4 text-center'>
-                <div className='bg-sky-100 p-5 rounded-lg shadow-lg'>
-                    <div className='flex justify-center'>
-                        <img className='h-20' src="https://i.ibb.co/zGkdbBT/best.png" alt="" />
-                    </div>
-                    <h3 className='my-3 text-xl font-bold'>Best Service</h3>
-                </div>
-                <div className='bg-sky-100 p-5 rounded-lg shadow-lg'>
-                    <div className='flex justify-center'>
-                        <img className='h-20' src="https://i.ibb.co/QMcGs4c/value.png" alt="" />
-                    </div>
-                    <h3 className='my-3 text-xl font-bold'>Value For Money Product</h3>
-                </div>
-                <div className='bg-sky-100 p-5 rounded-lg shadow-lg'>
-                    <div className='flex justify-center'>
-                        <img className='h-20' src="https://i.ibb.co/P1gjQSy/material.png" alt="" />
-                    </div>
-                    <h3 className='my-3 text-xl font-bold'>High Quality Material</h3>
-                </div>
-                <div className='bg-sky-100 p-5 rounded-lg shadow-lg'>
-                    <div className='flex justify-center'>
-                        <img className='h-20' src="https://i.ibb.co/JRBzFvQ/support.png" alt="" />
-                    </div>
-                    <h3 className='my-3 text-xl font-bold'>24/7 Customer Support</h3>
-                </div>
+    return (
+        <section className='section'>
+            <div className='mb-10 text-center'>
+                <span className='eyebrow'>Why choose us</span>
+                <h2 className='section-title mt-3'>We <span className='text-gradient'>Offer</span></h2>
             </div>
-        </div>
+
+            <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+                {
+                    offers.map((offer, index) => (
+                        <div
+                            key={index}
+                            className={`card-surface card-hover group relative overflow-hidden bg-gradient-to-b ${offer.tint} p-7 text-center`}
+                        >
+                            <div className='flex justify-center'>
+                                <div className='grid h-24 w-24 place-items-center rounded-full bg-white/80 shadow-inner transition-transform duration-300 group-hover:scale-110'>
+                                    <img className='h-16' src={offer.icon} alt="" />
+                                </div>
+                            </div>
+                            <h3 className='mt-5 text-lg font-bold text-slate-800'>{offer.title}</h3>
+                        </div>
+                    ))
+                }
+            </div>
+        </section>
     );
 };
 

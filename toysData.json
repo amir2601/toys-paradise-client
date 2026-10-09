@@ -1,0 +1,167 @@
+[
+  {
+    "toy_name": "Porsche 993 GT2",
+    "sub_category": "sports",
+    "seller_name": "Tamim",
+    "seller_email": "tamim@gmail.com",
+    "img": "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=500",
+    "price": "12",
+    "description": "High-quality die-cast toy car model with detailed interior and smooth rolling wheels.",
+    "quantity": "240",
+    "rating": "4.9"
+  },
+  {
+    "toy_name": "Lamborghini Aventador SVJ",
+    "sub_category": "sports",
+    "seller_name": "Tamim",
+    "seller_email": "tamim@gmail.com",
+    "img": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=500",
+    "price": "18",
+    "description": "1:24 scale supercar replica with opening doors, detailed V12 engine bay and premium rubber tyres.",
+    "quantity": "180",
+    "rating": "4.8"
+  },
+  {
+    "toy_name": "Porsche 911 Turbo S",
+    "sub_category": "sports",
+    "seller_name": "Sabbir",
+    "seller_email": "sabbir.ahmed@gmail.com",
+    "img": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=500",
+    "price": "19",
+    "description": "Precision-engineered sports collectible with detailed rear spoiler, LED-style lights and high-grip rubber tyres.",
+    "quantity": "140",
+    "rating": "4.9"
+  },
+  {
+    "toy_name": "McLaren 720S Coupe",
+    "sub_category": "sports",
+    "seller_name": "Nusrat",
+    "seller_email": "nusrat.jahan@gmail.com",
+    "img": "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=500",
+    "price": "20",
+    "description": "Sleek aerodynamic supercar model with butterfly doors and a fully detailed cockpit for collectors.",
+    "quantity": "110",
+    "rating": "4.7"
+  },
+  {
+    "toy_name": "Ford F-150 Raptor",
+    "sub_category": "truck",
+    "seller_name": "Rakib",
+    "seller_email": "rakib.hossain@gmail.com",
+    "img": "https://images.unsplash.com/photo-1551830820-330a71b99659?q=80&w=500",
+    "price": "15",
+    "description": "Rugged off-road pickup toy with chunky all-terrain wheels, working suspension and a tough metal body.",
+    "quantity": "210",
+    "rating": "4.7"
+  },
+  {
+    "toy_name": "Monster Truck Thunder",
+    "sub_category": "truck",
+    "seller_name": "Rakib",
+    "seller_email": "rakib.hossain@gmail.com",
+    "img": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=500",
+    "price": "13",
+    "description": "Oversized monster truck with giant treaded wheels, heavy-duty suspension and a powerful push-and-go motor.",
+    "quantity": "260",
+    "rating": "4.5"
+  },
+  {
+    "toy_name": "Volvo FH16 Semi Truck",
+    "sub_category": "truck",
+    "seller_name": "Imran",
+    "seller_email": "imran.khan@gmail.com",
+    "img": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?q=80&w=500",
+    "price": "22",
+    "description": "Detailed cab-over semi truck model with a detachable trailer, real rubber tyres and steering front wheels.",
+    "quantity": "95",
+    "rating": "4.6"
+  },
+  {
+    "toy_name": "Jeep Wrangler Rubicon",
+    "sub_category": "truck",
+    "seller_name": "Imran",
+    "seller_email": "imran.khan@gmail.com",
+    "img": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=500",
+    "price": "14",
+    "description": "Trail-ready 4x4 toy with removable roof, knobby tyres and a sturdy body built for imaginative off-road play.",
+    "quantity": "185",
+    "rating": "4.6"
+  },
+  {
+    "toy_name": "Range Rover Sport HST",
+    "sub_category": "suv",
+    "seller_name": "Nusrat",
+    "seller_email": "nusrat.jahan@gmail.com",
+    "img": "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=500",
+    "price": "16",
+    "description": "Luxury SUV model with panoramic sunroof detail, chrome accents and a realistic premium interior.",
+    "quantity": "150",
+    "rating": "4.8"
+  },
+  {
+    "toy_name": "Toyota Land Cruiser Prado",
+    "sub_category": "suv",
+    "seller_name": "Mim",
+    "seller_email": "mim.akter@gmail.com",
+    "img": "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?q=80&w=500",
+    "price": "17",
+    "description": "Adventure-ready SUV toy with roof rack, skid plates and an opening rear door for realistic play.",
+    "quantity": "175",
+    "rating": "4.7"
+  },
+  {
+    "toy_name": "BMW X5 xDrive40i",
+    "sub_category": "suv",
+    "seller_name": "Mim",
+    "seller_email": "mim.akter@gmail.com",
+    "img": "https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=500",
+    "price": "18",
+    "description": "Spacious luxury SUV replica featuring a detailed grille, sporty alloy wheels and a smooth premium finish.",
+    "quantity": "130",
+    "rating": "4.8"
+  },
+  {
+    "toy_name": "Mercedes-Benz G-Class",
+    "sub_category": "suv",
+    "seller_name": "Sabbir",
+    "seller_email": "sabbir.ahmed@gmail.com",
+    "img": "https://images.unsplash.com/photo-1520031441872-265e4ff70366?q=80&w=500",
+    "price": "21",
+    "description": "Iconic boxy off-roader with a rugged stance, opening doors and a meticulously detailed interior.",
+    "quantity": "105",
+    "rating": "4.9"
+  },
+  {
+    "toy_name": "Vintage Volkswagen Beetle",
+    "sub_category": "classic",
+    "seller_name": "Sabbir",
+    "seller_email": "sabbir.ahmed@gmail.com",
+    "img": "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=500",
+    "price": "14",
+    "description": "Charming retro Beetle with a hand-painted pastel finish, whitewall tyres and nostalgic curves.",
+    "quantity": "120",
+    "rating": "4.6"
+  },
+  {
+    "toy_name": "1957 Chevrolet Bel Air",
+    "sub_category": "classic",
+    "seller_name": "Tamim",
+    "seller_email": "tamim@gmail.com",
+    "img": "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=500",
+    "price": "23",
+    "description": "Gleaming chrome-trimmed Bel Air with two-tone paint, vintage tail fins and a detailed dashboard.",
+    "quantity": "90",
+    "rating": "4.8"
+  },
+  {
+    "toy_name": "Classic Mini Cooper S",
+    "sub_category": "classic",
+    "seller_name": "Rakib",
+    "seller_email": "rakib.hossain@gmail.com",
+    "img": "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?q=80&w=500",
+    "price": "13",
+    "description": "Timeless British icon in a 1:32 scale model with a glossy finish, chrome bumpers and detailed wheel arches.",
+    "quantity": "160",
+    "rating": "4.5"
+  }
+]

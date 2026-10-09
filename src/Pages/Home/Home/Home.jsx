@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Banner from '../Banner/Banner';
 import PhotoSection from '../PhotoSection/PhotoSection';
+import FeaturedToys from '../FeaturedToys/FeaturedToys';
 import ToysByCategory from '../ToysByCategory/ToysByCategory';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -16,10 +17,13 @@ const Home = () => {
         AOS.init();
     }, []);
     return (
-        <div>
+        <div className='container-x pb-4 pt-6'>
             <Banner></Banner>
             <div data-aos="fade-down" data-aos-duration="1000">
                 <PhotoSection></PhotoSection>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <FeaturedToys></FeaturedToys>
             </div>
             <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <ToysByCategory></ToysByCategory>

@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: <AllToys></AllToys>
       },
       {
-        path: '/Toy/:id',
+        path: '/toy/:id',
         element: <PrivateRoutes>
           <ToyDetails></ToyDetails>
         </PrivateRoutes>,
@@ -54,7 +54,9 @@ const router = createBrowserRouter([
       },
       {
         path: '/myToys/:id',
-        element: <UpdateToy></UpdateToy>,
+        element: <PrivateRoutes>
+          <UpdateToy></UpdateToy>
+        </PrivateRoutes>,
         loader: ({params}) => fetch(`https://toys-paradise-server.vercel.app/myToys/${params.id}`)
       },
       {
