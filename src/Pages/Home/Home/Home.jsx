@@ -1,43 +1,36 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Banner from '../Banner/Banner';
 import PhotoSection from '../PhotoSection/PhotoSection';
 import FeaturedToys from '../FeaturedToys/FeaturedToys';
 import ToysByCategory from '../ToysByCategory/ToysByCategory';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import WeOffer from '../WeOffer/WeOffer';
 import Faq from '../Faq/Faq';
-import useTitle from '../../../Hooks/useTitle';
 import Testimonials from '../Testimonials/Testimonials';
+import StatsBand from '../StatsBand/StatsBand';
+import Showcase from '../Showcase/Showcase';
+import BrandMarquee from '../../../Components/UI/BrandMarquee';
+import PageTransition from '../../../Components/Animations/PageTransition';
+import useTitle from '../../../Hooks/useTitle';
+import { partnerBrands } from '../../../Data/siteData';
 
 const Home = () => {
     useTitle('Home');
 
-    useEffect(() => {
-        AOS.init();
-    }, []);
     return (
-        <div className='container-x pb-4 pt-6'>
-            <Banner></Banner>
-            <div data-aos="fade-down" data-aos-duration="1000">
-                <PhotoSection></PhotoSection>
+        <PageTransition>
+            <div className='container-x pb-4 pt-6'>
+                <Banner />
+                <BrandMarquee brands={partnerBrands} />
+                <FeaturedToys />
+                <ToysByCategory />
+                <StatsBand />
+                <PhotoSection />
+                <Showcase />
+                <WeOffer />
+                <Testimonials />
+                <Faq />
             </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                <FeaturedToys></FeaturedToys>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                <ToysByCategory></ToysByCategory>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                <WeOffer></WeOffer>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                <Testimonials></Testimonials>
-            </div>
-            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-                <Faq></Faq>
-            </div>
-        </div>
+        </PageTransition>
     );
 };
 

@@ -30,10 +30,10 @@ const SocialLogin = () => {
                 <span className='h-px flex-1 bg-base-300'></span>
             </div>
             <div className='mt-5 flex justify-center gap-4'>
-                <button type='button' onClick={handleGoogleLogin} className="btn btn-circle border-base-300 bg-base-100 text-slate-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary">
+                <button type='button' onClick={handleGoogleLogin} className="pressable grid h-12 w-12 place-items-center rounded-full border border-base-200 bg-white text-base text-slate-600 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:bg-gradient-to-br hover:from-violet-600 hover:to-fuchsia-500 hover:text-white hover:shadow-glow">
                     <FaGoogle></FaGoogle>
                 </button>
-                <button type='button' className="btn btn-circle border-base-300 bg-base-100 text-slate-600 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary">
+                <button type='button' className="pressable grid h-12 w-12 place-items-center rounded-full border border-base-200 bg-white text-base text-slate-600 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:bg-gradient-to-br hover:from-slate-700 hover:to-slate-900 hover:text-white hover:shadow-glow">
                     <FaGithub></FaGithub>
                 </button>
             </div>

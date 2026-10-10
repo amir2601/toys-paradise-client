@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
+import Reveal from '../../../Components/Animations/Reveal';
+import SectionHeading from '../../../Components/UI/SectionHeading';
+
+const ease = [0.16, 1, 0.3, 1];
 
 const FeaturedToys = () => {
     const [toys, setToys] = useState([]);
@@ -18,15 +23,22 @@ const FeaturedToys = () => {
 
     return (
         <section className='section'>
-            <div className='mb-10 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:items-end sm:text-left'>
-                <div>
-                    <span className='eyebrow'>Handpicked for you</span>
-                    <h2 className='mt-3 text-3xl font-bold text-slate-900 sm:text-4xl'>
-                        Featured <span className='text-gradient'>Toys</span>
-                    </h2>
-                    <p className='mt-2 text-sm text-slate-500'>The highest rated rides loved by our little drivers.</p>
-                </div>
-                <Link to='/allToys' className='btn btn-outline btn-primary btn-pill px-6'>View All Toys</Link>
+            <div className='mb-10 flex flex-col items-center justify-between gap-4 sm:flex-row sm:items-end'>
+                <SectionHeading
+                    align='left'
+                    eyebrow='Handpicked for you'
+                    title={<>Featured <span className='text-gradient'>Toys</span></>}
+                    subtitle='The highest rated rides loved by our little drivers.'
+                />
+                <Reveal direction='right'>
+                    <Link
+                        to='/allToys'
+                        className='btn btn-shine pressable group gap-2 rounded-full border-2 border-violet-600 bg-transparent px-7 font-bold text-violet-700 transition-all duration-300 hover:bg-violet-600 hover:text-white hover:shadow-soft'
+                    >
+                        View All Toys
+                        <span className='transition-transform duration-300 group-hover:translate-x-1'>→</span>
+                    </Link>
+                </Reveal>
             </div>
 
             {
@@ -40,8 +52,16 @@ const FeaturedToys = () => {
                     </div>
                     : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         {
-                            featured.map(toy => (
-                                <ProductCard key={toy._id} toy={toy} showDetails />
+                            featured.map((toy, index) => (
+                                <motion.div
+                                    key={toy._id}
+                                    initial={{ opacity: 0, y: 40 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.15 }}
+                                    transition={{ duration: 0.6, delay: (index % 4) * 0.09, ease }}
+                                >
+                                    <ProductCard toy={toy} showDetails />
+                                </motion.div>
                             ))
                         }
                     </div>
