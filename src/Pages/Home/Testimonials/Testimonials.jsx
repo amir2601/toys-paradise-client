@@ -60,6 +60,9 @@ const Testimonials = () => {
         customPaging: () => (
             <button type='button' className='testi-dot' aria-label='Go to review' />
         ),
+        // react-slick clones appendDots' element and REPLACES its className with
+        // dotsClass, so the marker class must be declared here to survive.
+        dotsClass: 'slick-dots testi-dots',
         appendDots: (dots) => (
             <ul className='testi-dots'>{dots}</ul>
         ),
@@ -118,7 +121,7 @@ const Testimonials = () => {
                                     </div>
                                     <div className='min-w-0 flex-1'>
                                         <p className='truncate text-sm font-extrabold text-slate-800'>{item.name}</p>
-                                        <p className='truncate text-xs text-slate-400'>{item.role}</p>
+                                        <p className='truncate text-xs text-slate-500'>{item.role}</p>
                                     </div>
                                     <a
                                         href={item.link}

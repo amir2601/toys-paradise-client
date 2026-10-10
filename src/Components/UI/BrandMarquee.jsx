@@ -11,7 +11,7 @@ const BrandMarquee = ({ brands }) => {
     return (
         <section className="section pb-2 pt-4">
             <Reveal direction="up" className="text-center">
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-400">
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
                     Trusted by toy lovers &amp; featured in
                 </p>
             </Reveal>
@@ -21,7 +21,7 @@ const BrandMarquee = ({ brands }) => {
                     {row.map((brand, index) => (
                         <span
                             key={`${brand}-${index}`}
-                            className="group flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-400 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:text-violet-700 hover:shadow-soft"
+                            className="group flex shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-bold text-slate-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:text-violet-700 hover:shadow-soft"
                         >
                             <span className="h-2 w-2 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-400 transition-transform duration-300 group-hover:scale-150" />
                             {brand}

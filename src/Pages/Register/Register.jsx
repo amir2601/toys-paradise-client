@@ -27,7 +27,6 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
                 const profile = { displayName: name };
                 if (photo) profile.photoURL = photo;
                 return updateProfile(user, profile)
@@ -36,12 +35,12 @@ const Register = () => {
                         setError('');
                     })
                     .catch(error => {
-                        console.log(error.message);
+                        console.error(error.message);
                         setError(error.message);
                     });
             })
             .catch(error => {
-                console.log(error.message);
+                console.error(error.message);
                 setError(error.message);
             });
     };

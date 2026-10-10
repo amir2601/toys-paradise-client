@@ -4,9 +4,11 @@ import useTitle from '../../Hooks/useTitle';
 import ProductCard from '../Shared/ProductCard/ProductCard';
 import PageTransition from '../../Components/Animations/PageTransition';
 import Reveal from '../../Components/Animations/Reveal';
+import { ToyCardSkeleton } from '../../Components/UI/Skeleton';
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [visible, setVisible] = useState(20);
     const [searchText, setSearchText] = useState('')
     useTitle('All Toys')
@@ -25,13 +27,17 @@ const AllToys = () => {
                 : 'https://toys-paradise-server.vercel.app/allToys';
 
             setVisible(20);
+            setLoading(true);
             fetch(url, { signal: controller.signal })
                 .then(res => res.json())
-                .then(data => setToys(data))
+                .then(data => setToys(Array.isArray(data) ? data : []))
                 .catch(error => {
                     if (error.name !== 'AbortError') {
                         console.error('Error searching toys:', error);
                     }
+                })
+                .finally(() => {
+                    if (!controller.signal.aborted) setLoading(false);
                 });
         }, 300);
 
@@ -66,31 +72,36 @@ const AllToys = () => {
                 </Reveal>
 
                 {
-                    toys.length === 0
-                        ? <div className='card-surface grid place-items-center p-16 text-center text-slate-400'>
-                            <p className='text-4xl'>🔍</p>
-                            <p className='mt-3'>No toys found. Try a different search.</p>
+                    loading
+                        ? <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                            {Array.from({ length: 8 }).map((_, index) => <ToyCardSkeleton key={index} />)}
                         </div>
-                        : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                            {
-                                toys.slice(0, visible).map((toy, index) => (
-                                    <motion.div
-                                        key={toy._id}
-                                        initial={{ opacity: 0, y: 32 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5, delay: (index % 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
-                                    >
-                                        <ProductCard toy={toy} showDetails />
-                                    </motion.div>
-                                ))
-                            }
-                        </div>
+                        : toys.length === 0
+                            ? <div className='card-surface grid place-items-center p-16 text-center'>
+                                <p className='text-4xl'>🔍</p>
+                                <p className='mt-3 font-semibold text-slate-600'>No toys found. Try a different search.</p>
+                                <p className='mt-1 text-sm text-slate-500'>Check the spelling or browse the full collection.</p>
+                            </div>
+                            : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                {
+                                    toys.slice(0, visible).map((toy, index) => (
+                                        <motion.div
+                                            key={toy._id}
+                                            initial={{ opacity: 0, y: 32 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 0.5, delay: (index % 4) * 0.07, ease: [0.16, 1, 0.3, 1] }}
+                                        >
+                                            <ProductCard toy={toy} showDetails />
+                                        </motion.div>
+                                    ))
+                                }
+                            </div>
                 }
 
                 {
-                    toys.length <= visible ? '' : <div className='text-center'>
+                    !loading && toys.length > visible ? <div className='text-center'>
                         <button onClick={showAllToys} className="btn btn-outline btn-primary btn-pill pressable px-8">See More</button>
-                    </div>
+                    </div> : null
                 }
             </div>
         </div>

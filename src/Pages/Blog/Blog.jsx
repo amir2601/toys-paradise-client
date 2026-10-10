@@ -151,7 +151,7 @@ const Blog = () => {
                                 <span className='rounded-full bg-violet-100 px-3 py-1 text-xs font-bold uppercase tracking-wide text-violet-700'>
                                     {article.tag}
                                 </span>
-                                <span className='flex items-center gap-1.5 text-xs text-slate-400'>
+                                <span className='flex items-center gap-1.5 text-xs text-slate-500'>
                                     <FaClock /> {article.read}
                                 </span>
                             </div>

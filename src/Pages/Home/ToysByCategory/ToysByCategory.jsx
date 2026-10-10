@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 import SectionHeading from '../../../Components/UI/SectionHeading';
+import { ToyCardSkeleton } from '../../../Components/UI/Skeleton';
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -9,17 +10,20 @@ const categories = [
   { value: 'suv', label: 'SUV', emoji: '🚙' },
   { value: 'classic', label: 'Classic', emoji: '🚗' },
   { value: 'sports', label: 'Sports', emoji: '🏎️' },
+  { value: 'truck', label: 'Trucks', emoji: '🛻' },
 ];
 
 const ToysByCategory = () => {
   const [toys, setToys] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('suv');
 
   useEffect(() => {
     fetch('https://toys-paradise-server.vercel.app/allToys')
       .then(res => res.json())
-      .then(data => setToys(data))
-      .catch(error => console.log(error.message));
+      .then(data => setToys(Array.isArray(data) ? data : []))
+      .catch(error => console.error(error.message))
+      .finally(() => setLoading(false));
   }, []);
 
   const filteredToys = toys.filter(toy => toy.sub_category === activeTab);
@@ -34,7 +38,7 @@ const ToysByCategory = () => {
         />
 
         {/* Animated pill tabs */}
-        <div className="flex flex-wrap justify-center gap-2 rounded-full border border-slate-200 bg-white/70 p-2 shadow-sm backdrop-blur sm:inline-flex sm:gap-2">
+        <div className="mx-auto flex w-fit max-w-full flex-wrap justify-center gap-2 rounded-full border border-slate-200 bg-white/70 p-2 shadow-sm backdrop-blur">
           {categories.map(category => {
             const active = activeTab === category.value;
             return (
@@ -68,11 +72,15 @@ const ToysByCategory = () => {
             exit={{ opacity: 0, y: -14, scale: 0.985 }}
             transition={{ duration: 0.4, ease }}
           >
-            {filteredToys.length === 0 ? (
+            {loading ? (
+              <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                {Array.from({ length: 4 }).map((_, index) => <ToyCardSkeleton key={index} />)}
+              </div>
+            ) : filteredToys.length === 0 ? (
               <div className='card-surface grid place-items-center p-12 text-center'>
                 <p className='animate-bounce-in text-5xl'>🪀</p>
-                <p className='mt-4 font-semibold text-slate-500'>No toys in this category yet.</p>
-                <p className='mt-1 text-sm text-slate-400'>Check back soon — new rides land every week.</p>
+                <p className='mt-4 font-semibold text-slate-600'>No toys in this category yet.</p>
+                <p className='mt-1 text-sm text-slate-500'>Check back soon — new rides land every week.</p>
               </div>
             ) : (
               <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>

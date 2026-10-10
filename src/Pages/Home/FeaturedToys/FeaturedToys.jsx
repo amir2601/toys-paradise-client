@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import ProductCard from '../../Shared/ProductCard/ProductCard';
 import Reveal from '../../../Components/Animations/Reveal';
 import SectionHeading from '../../../Components/UI/SectionHeading';
+import { ToyCardSkeleton } from '../../../Components/UI/Skeleton';
 
 const ease = [0.16, 1, 0.3, 1];
 
@@ -14,7 +15,7 @@ const FeaturedToys = () => {
         fetch('https://toys-paradise-server.vercel.app/allToys')
             .then(res => res.json())
             .then(data => setToys(data))
-            .catch(error => console.log(error.message));
+            .catch(error => console.error(error.message));
     }, []);
 
     const featured = [...toys]
@@ -45,9 +46,7 @@ const FeaturedToys = () => {
                 featured.length === 0
                     ? <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
                         {
-                            Array.from({ length: 4 }).map((_, index) => (
-                                <div key={index} className='card-surface h-72 animate-pulse bg-gradient-to-br from-slate-100 to-slate-50' />
-                            ))
+                            Array.from({ length: 4 }).map((_, index) => <ToyCardSkeleton key={index} />)
                         }
                     </div>
                     : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>

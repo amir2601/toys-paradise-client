@@ -33,7 +33,6 @@ const AddToys = () => {
             rating,
             description
         }
-        console.log(newToy);
 
         fetch(`https://toys-paradise-server.vercel.app/allToys`, {
             method: 'POST',
@@ -44,7 +43,6 @@ const AddToys = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             if (data.insertedId) {
                 Swal.fire({
                     position: 'center',

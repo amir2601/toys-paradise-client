@@ -297,24 +297,40 @@ textarea:focus-visible,
 }
 
 .slick-slider .slick-dots button.testi-dot {
-  width: 0.6rem;
-  height: 0.6rem;
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
   border: 0;
   border-radius: 9999px;
   padding: 0;
-  background: #ddd6fe;
+  background: transparent;
   font-size: 0;
   color: transparent;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* The visible pill lives on ::before so the button keeps a finger-friendly hit area */
+.slick-slider .slick-dots button.testi-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: #ddd6fe;
   transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     background-color 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
 }
 
-.slick-slider .slick-dots button.testi-dot:hover {
+.slick-slider .slick-dots button.testi-dot:hover::before,
+.slick-slider .slick-dots button.testi-dot:focus-visible::before {
   background: #c4b5fd;
 }
 
-.slick-slider .slick-dots li.slick-active button.testi-dot {
+.slick-slider .slick-dots li.slick-active button.testi-dot::before {
   width: 2.25rem;
   background: linear-gradient(90deg, #7c3aed, #d946ef);
   box-shadow: 0 6px 18px -6px rgba(124, 58, 237, 0.65);

@@ -18,7 +18,7 @@ const ToyDetails = () => {
                     <div className='card-surface mx-auto grid max-w-md place-items-center p-12 text-center shadow-soft'>
                         <p className='text-5xl'>🧸</p>
                         <p className='mt-4 font-semibold text-slate-600'>This toy has rolled off the shelf.</p>
-                        <p className='mt-1 text-sm text-slate-400'>It may have been sold or the link is out of date.</p>
+                        <p className='mt-1 text-sm text-slate-500'>It may have been sold or the link is out of date.</p>
                         <Link
                             to='/allToys'
                             className='btn btn-shine pressable mt-6 rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 px-8 font-bold text-white shadow-soft'
@@ -100,7 +100,7 @@ const ToyDetails = () => {
                                             {fact.icon}
                                         </span>
                                         <div className='min-w-0'>
-                                            <p className='text-[10px] font-bold uppercase tracking-widest text-slate-400'>{fact.label}</p>
+                                            <p className='text-[10px] font-bold uppercase tracking-widest text-slate-500'>{fact.label}</p>
                                             <p className='truncate text-sm font-semibold capitalize text-slate-700'>{fact.value}</p>
                                         </div>
                                     </motion.div>

@@ -16,7 +16,7 @@ const UpdateToy = () => {
                     <div className='card-surface mx-auto grid max-w-md place-items-center p-12 text-center'>
                         <p className='text-4xl'>🔍</p>
                         <p className='mt-4 font-semibold text-slate-600'>We couldn&apos;t find that toy.</p>
-                        <p className='mt-1 text-sm text-slate-400'>It may have been removed or the link is out of date.</p>
+                        <p className='mt-1 text-sm text-slate-500'>It may have been removed or the link is out of date.</p>
                         <Link
                             to='/myToys'
                             className='btn btn-shine pressable mt-6 rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 px-8 font-bold text-white shadow-soft'
@@ -43,7 +43,6 @@ const UpdateToy = () => {
             quantity,
             description
         }
-        console.log(updateToy);
 
         fetch(`https://toys-paradise-server.vercel.app/myToys/${_id}`, {
             method: 'PATCH',
@@ -54,7 +53,6 @@ const UpdateToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         position: 'center',

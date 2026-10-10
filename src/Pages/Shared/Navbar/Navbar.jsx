@@ -37,7 +37,7 @@ const Navbar = () => {
         logOut()
             .then()
             .catch(error => {
-                console.log(error.message);
+                console.error(error.message);
             });
     };
 

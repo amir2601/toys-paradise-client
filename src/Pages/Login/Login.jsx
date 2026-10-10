@@ -31,7 +31,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch(error => {
-                console.log(error.message);
+                console.error(error.message);
                 setError(error.message);
             });
     };

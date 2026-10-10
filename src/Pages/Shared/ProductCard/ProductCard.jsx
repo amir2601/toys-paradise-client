@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import Rating from 'react-rating';
-import { FaRegStar, FaStar, FaTrashAlt, FaArrowRight } from 'react-icons/fa';
+import { FaTrashAlt, FaArrowRight } from 'react-icons/fa';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import Stars from '../../../Components/UI/Stars';
 
 const DetailsButton = ({ id }) => {
     const { user } = useContext(AuthContext);
 
-    const handleSweet = () => {
+    const handleClick = (event) => {
+        if (user) return; // logged in → let the link navigate
+        event.preventDefault();
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -19,7 +21,7 @@ const DetailsButton = ({ id }) => {
 
     return (
         <Link
-            onClick={user ? undefined : handleSweet}
+            onClick={handleClick}
             to={`/toy/${id}`}
             className="btn btn-shine pressable group/det flex-1 items-center gap-1.5 rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 text-sm font-bold text-white shadow-soft hover:from-violet-500 hover:to-fuchsia-400"
         >
@@ -72,21 +74,14 @@ const ProductCard = ({ toy, showDetails = false, onDelete, updateLink }) => {
                     {toy_name}
                 </h3>
                 {seller_name && (
-                    <p className='mt-0.5 line-clamp-1 text-xs text-slate-400'>
-                        by <span className='font-semibold text-slate-500'>{seller_name}</span>
+                    <p className='mt-0.5 line-clamp-1 text-xs text-slate-500'>
+                        by <span className='font-semibold text-slate-600'>{seller_name}</span>
                     </p>
                 )}
 
                 <div className='mt-2 flex items-center gap-2'>
-                    <Rating
-                        className='text-sm text-amber-500'
-                        placeholderRating={rating}
-                        emptySymbol={<FaRegStar />}
-                        placeholderSymbol={<FaStar />}
-                        fullSymbol={<FaStar />}
-                        readonly
-                    />
-                    <span className='text-xs font-semibold text-slate-500'>{rating}</span>
+                    <Stars value={rating} />
+                    <span className='text-xs font-semibold text-slate-600'>{rating}</span>
                 </div>
 
                 <div className='mt-3 flex items-end justify-between'>
@@ -95,7 +90,7 @@ const ProductCard = ({ toy, showDetails = false, onDelete, updateLink }) => {
                         <span className='bg-gradient-to-r from-violet-700 to-fuchsia-500 bg-clip-text'>$ {price}</span>
                     </span>
                     {typeof quantity !== 'undefined' && quantity !== '' && (
-                        <span className='text-xs font-medium text-slate-400'>🚗 {quantity} in stock</span>
+                        <span className='text-xs font-medium text-slate-500'>🚗 {quantity} in stock</span>
                     )}
                 </div>
 

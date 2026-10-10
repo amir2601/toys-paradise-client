@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import Reveal from '../../../Components/Animations/Reveal';
 import { showcase as showcaseData } from '../../../Data/siteData';
@@ -11,19 +11,30 @@ const { kicker, title, body } = showcaseData;
 
 /** Editorial split section: big image + story-driven CTA. */
 const Showcase = () => {
+    const frameRef = useRef(null);
+    // Subtle depth: the photo drifts slower than the page as you scroll past it.
+    const { scrollYProgress } = useScroll({
+        target: frameRef,
+        offset: ['start end', 'end start'],
+    });
+    const y = useTransform(scrollYProgress, [0, 1], ['-6%', '6%']);
+
     return (
         <section className="section">
             <div className="grid items-center gap-10 lg:grid-cols-2">
                 <Reveal direction="left" className="relative">
-                    <div className="absolute -left-6 -top-6 h-28 w-28 rounded-3xl border-2 border-violet-300/60" aria-hidden="true"></div>
-                    <div className="absolute -bottom-6 -right-6 h-28 w-28 rounded-3xl border-2 border-amber-300/60" aria-hidden="true"></div>
+                    <div className="absolute -left-6 -top-6 hidden h-28 w-28 rounded-3xl border-2 border-violet-300/60 sm:block" aria-hidden="true"></div>
+                    <div className="absolute -bottom-6 -right-6 hidden h-28 w-28 rounded-3xl border-2 border-amber-300/60 sm:block" aria-hidden="true"></div>
 
-                    <div className="relative overflow-hidden rounded-[2rem] shadow-lift">
-                        <img
+                    <div ref={frameRef} className="relative h-[24rem] overflow-hidden rounded-[2rem] shadow-lift sm:h-[28rem]">
+                        <motion.img
                             src={showcaseData.image}
                             alt={title}
                             loading="lazy"
-                            className="h-[22rem] w-full object-cover transition-transform duration-700 ease-out hover:scale-105 sm:h-[26rem]"
+                            style={{ y }}
+                            whileHover={{ scale: 1.06 }}
+                            transition={{ duration: 0.6, ease }}
+                            className="absolute inset-x-0 -top-[10%] h-[120%] w-full object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-violet-950/70 via-transparent to-transparent"></div>
 

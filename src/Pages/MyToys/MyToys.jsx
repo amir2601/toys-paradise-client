@@ -5,9 +5,11 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import ProductCard from '../Shared/ProductCard/ProductCard';
 import PageTransition from '../../Components/Animations/PageTransition';
+import { ToyCardSkeleton } from '../../Components/UI/Skeleton';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [sortOrder, setSortOrder] = useState('asc');
     const { user } = useContext(AuthContext)
     useTitle('My Toys');
@@ -17,13 +19,16 @@ const MyToys = () => {
     }, [sortOrder]);
 
     const fetchData = async () => {
+        setLoading(true);
         try {
             const url = `https://toys-paradise-server.vercel.app/myToys?email=${user?.email}&sort=${sortOrder}`;
             const response = await fetch(url);
             const data = await response.json();
-            setToys(data);
+            setToys(Array.isArray(data) ? data : []);
         } catch (error) {
             console.error('Error fetching data:', error);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -82,14 +87,19 @@ const MyToys = () => {
                 </div>
 
                 {
-                    toys.length === 0
-                        ? <div className='card-surface grid place-items-center p-16 text-center text-slate-400'>
-                            <p className='text-4xl'>🧸</p>
-                            <p className='mt-3 font-semibold text-slate-500'>You have not added any toys yet.</p>
+                    loading
+                        ? <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                            {Array.from({ length: 4 }).map((_, index) => <ToyCardSkeleton key={index} />)}
                         </div>
-                        : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-                            {
-                                toys.map((toy, index) => (
+                        : toys.length === 0
+                            ? <div className='card-surface grid place-items-center p-16 text-center'>
+                                <p className='text-4xl'>🧸</p>
+                                <p className='mt-3 font-semibold text-slate-600'>You have not added any toys yet.</p>
+                                <p className='mt-1 text-sm text-slate-500'>List your first toy and it will show up here.</p>
+                            </div>
+                            : <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+                                {
+                                    toys.map((toy, index) => (
                                     <motion.div
                                         key={toy._id}
                                         initial={{ opacity: 0, y: 34 }}

@@ -12,13 +12,11 @@ const SocialLogin = () => {
 
     const handleGoogleLogin = () => {
         googleLogin()
-            .then(result => {
-                const user = result.user;
-                console.log(user);
+            .then(() => {
                 navigate(from, {replace: true})
             })
             .catch(error => {
-                console.log(error.message);
+                console.error(error.message);
             })
     }
 
@@ -26,7 +24,7 @@ const SocialLogin = () => {
         <div className='mt-6'>
             <div className="flex items-center gap-4">
                 <span className='h-px flex-1 bg-base-300'></span>
-                <span className='text-xs font-semibold uppercase tracking-widest text-slate-400'>OR</span>
+                <span className='text-xs font-semibold uppercase tracking-widest text-slate-500'>OR</span>
                 <span className='h-px flex-1 bg-base-300'></span>
             </div>
             <div className='mt-5 flex justify-center gap-4'>
