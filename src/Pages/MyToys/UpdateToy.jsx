@@ -1,15 +1,35 @@
 import React from 'react';
 import Swal from 'sweetalert2'
 import { motion } from 'framer-motion';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../Hooks/useTitle';
 import PageTransition from '../../Components/Animations/PageTransition';
 
 const UpdateToy = () => {
     const toy = useLoaderData();
-    console.log(toy);
-    const {_id} = toy
     useTitle('Update Toys');
+
+    if (!toy) {
+        return (
+            <PageTransition>
+                <div className='container-x section'>
+                    <div className='card-surface mx-auto grid max-w-md place-items-center p-12 text-center'>
+                        <p className='text-4xl'>🔍</p>
+                        <p className='mt-4 font-semibold text-slate-600'>We couldn&apos;t find that toy.</p>
+                        <p className='mt-1 text-sm text-slate-400'>It may have been removed or the link is out of date.</p>
+                        <Link
+                            to='/myToys'
+                            className='btn btn-shine pressable mt-6 rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 px-8 font-bold text-white shadow-soft'
+                        >
+                            Back to My Toys
+                        </Link>
+                    </div>
+                </div>
+            </PageTransition>
+        );
+    }
+
+    const { _id } = toy;
 
     const handleUpdateToy = event => {
         event.preventDefault();

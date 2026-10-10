@@ -24,7 +24,7 @@ export const partnerBrands = [
 /**
  * Verified subjects:
  * - photo-1596461404969-9ae70f2830c1 → vintage toy train & wooden blocks
- * - photo-1546471969-8450cff03902  → assorted plastic toy lot
+ * - photo-1494952442863-4e31b3c1eb06 → colourfully mixed toy lot (fresh arrivals)
  */
 export const heroFloats = [
     {
@@ -34,7 +34,7 @@ export const heroFloats = [
         delay: 1.35,
     },
     {
-        src: u('photo-1546471969-8450cff03902', 500),
+        src: u('photo-1494952442863-4e31b3c1eb06', 500),
         caption: 'Fresh drops weekly',
         className: 'w-28 sm:w-32',
         delay: 1.6,
@@ -42,8 +42,8 @@ export const heroFloats = [
 ];
 
 export const showcase = {
-    // "a black and white bear plush toy" — warm, classic, timeless
-    image: u('photo-1590493299042-6b39bc3fa89c', 1400),
+    // "A miniature, vintage macintosh computer toy." — playful, retro, imaginative
+    image: u('photo-1744939823677-eaafa17ed879', 1400),
     kicker: 'Made for big imaginations',
     title: 'Every toy tells a story',
     body: 'Hand-picked die-cast models, timeless classics and collector-grade rides — curated so every shelf, sandbox and storytime feels special.',

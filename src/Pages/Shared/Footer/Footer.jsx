@@ -46,9 +46,8 @@ const Footer = () => {
             <div className='container-x py-14'>
                 <div className='grid gap-10 md:grid-cols-2 lg:grid-cols-6'>
                     <div className='lg:col-span-2'>
-                        <Link to='/' className='pressable flex w-fit items-center gap-3 transition-transform duration-300 hover:scale-105'>
-                            <img src={logo} alt='' className='h-12 w-auto' />
-                            <span className='font-display text-2xl font-bold text-white'>Toys Paradise</span>
+                        <Link to='/' aria-label='Toys Paradise — home' className='pressable flex w-fit items-center transition-transform duration-300 hover:scale-105'>
+                            <img src={logo} alt='' className='h-14 w-auto brightness-0 invert' />
                         </Link>
                         <p className='mt-4 max-w-sm text-sm leading-relaxed text-slate-400'>
                             Unleash your inner child. Discover premium toy cars, timeless classics and
@@ -111,7 +110,7 @@ const Footer = () => {
 
             <div className='border-t border-white/10'>
                 <div className='container-x flex flex-col items-center justify-between gap-3 py-5 text-xs text-slate-400 sm:flex-row'>
-                    <p>© Copyright 2023-{year} Toys Paradise. All Rights Reserved.</p>
+                    <p>© {year} Toys Paradise. All Rights Reserved.</p>
                     <p className='flex items-center gap-1.5'>
                         Made with <span className='animate-pulse text-rose-400'>♥</span> for little adventurers.
                     </p>

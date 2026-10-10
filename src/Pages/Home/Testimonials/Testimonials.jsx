@@ -56,9 +56,16 @@ const Testimonials = () => {
         autoplaySpeed: 3800,
         pauseOnHover: true,
         arrows: false,
+        // Premium pill-style pagination (styled in index.css → .testi-dots)
+        customPaging: () => (
+            <button type='button' className='testi-dot' aria-label='Go to review' />
+        ),
+        appendDots: (dots) => (
+            <ul className='testi-dots'>{dots}</ul>
+        ),
         responsive: [
-            { breakpoint: 640, settings: { slidesToShow: 1 } },
-            { breakpoint: 1024, settings: { slidesToShow: 2 } },
+            { breakpoint: 639, settings: { slidesToShow: 1 } },
+            { breakpoint: 1023, settings: { slidesToShow: 2 } },
         ],
     };
 
@@ -70,8 +77,7 @@ const Testimonials = () => {
                 subtitle='Real words from real families — tap a card to visit their profile.'
             />
 
-            <div className='mt-10 -mx-2 [&_.slick-dots]:-mt-2 [&_.slick-dots_li_button]:bg-violet-300 [&_.slick-dots_li_button:hover]:bg-violet-500 [&_.slick-dots_.slick-active_li_button]:bg-violet-600'>
-                <Slider {...settings}>
+            <div className='mt-10 -mx-2'><Slider {...settings}>
                     {testimonials.map((item, index) => (
                         <div key={index} className='px-2'>
                             <motion.div

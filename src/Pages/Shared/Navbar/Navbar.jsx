@@ -126,14 +126,12 @@ const Navbar = () => {
                     <div className='navbar-start'>
                         <Link
                             to='/'
-                            className='pressable flex items-center gap-2 transition-transform duration-300 hover:scale-105'
+                            aria-label='Toys Paradise — home'
+                            className='pressable flex items-center transition-transform duration-300 hover:scale-105'
                         >
                             <span className='relative'>
-                                <img src={logo} alt='Toys Paradise' className='h-11 w-auto' />
-                                <span className='absolute -right-1 -top-1 h-2.5 w-2.5 animate-ping rounded-full bg-amber-400'></span>
-                            </span>
-                            <span className='hidden font-display text-xl font-bold text-slate-800 sm:block'>
-                                Toys <span className='text-gradient'>Paradise</span>
+                                <img src={logo} alt='Toys Paradise' className='h-12 w-auto' />
+                                <span className='absolute -right-1.5 -top-1.5 h-3 w-3 animate-ping rounded-full bg-amber-400'></span>
                             </span>
                         </Link>
                     </div>
@@ -162,7 +160,7 @@ const Navbar = () => {
                                 onMouseDown={handleHamburgerMouseDown}
                                 onClick={handleHamburgerClick}
                                 aria-label='Toggle navigation menu'
-                                className='btn btn-circle border border-base-300 bg-base-100 shadow-sm transition-transform duration-200 hover:scale-105'
+                                className='btn btn-circle border border-base-300 bg-white text-slate-700 shadow-sm transition-transform duration-200 hover:scale-105 hover:text-violet-700'
                             >
                                 <svg
                                     xmlns='http://www.w3.org/2000/svg'

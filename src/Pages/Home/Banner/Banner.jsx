@@ -105,12 +105,12 @@ const Banner = () => {
                             </Link>
                             <Link
                                 to="/allToys"
-                                className="btn pressable group gap-2 rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-base font-bold text-white backdrop-blur transition-all duration-300 hover:border-white hover:bg-white hover:text-violet-700"
+                                className="btn pressable group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-base font-bold text-white backdrop-blur transition-all duration-300 hover:border-white hover:bg-white hover:text-violet-700"
                             >
-                                <span className="grid h-7 w-7 place-items-center rounded-full bg-white/25 text-xs transition-transform duration-300 group-hover:scale-110">
-                                    <FaPlay className="translate-x-px" />
+                                <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/25 leading-none transition-transform duration-300 group-hover:scale-110">
+                                    <FaPlay className="translate-x-px text-[11px]" />
                                 </span>
-                                Watch the fun
+                                <span className="whitespace-nowrap leading-none">Watch the fun</span>
                             </Link>
                         </motion.div>
 

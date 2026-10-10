@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaUser, FaStar, FaBoxOpen, FaTags } from 'react-icons/fa';
 import PageTransition from '../../Components/Animations/PageTransition';
@@ -9,8 +9,29 @@ const ease = [0.16, 1, 0.3, 1];
 
 const ToyDetails = () => {
     const toy = useLoaderData();
+    useTitle(toy?.toy_name || 'Toy Details');
+
+    if (!toy) {
+        return (
+            <PageTransition>
+                <div className='container-x section'>
+                    <div className='card-surface mx-auto grid max-w-md place-items-center p-12 text-center shadow-soft'>
+                        <p className='text-5xl'>🧸</p>
+                        <p className='mt-4 font-semibold text-slate-600'>This toy has rolled off the shelf.</p>
+                        <p className='mt-1 text-sm text-slate-400'>It may have been sold or the link is out of date.</p>
+                        <Link
+                            to='/allToys'
+                            className='btn btn-shine pressable mt-6 rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 px-8 font-bold text-white shadow-soft'
+                        >
+                            Browse All Toys
+                        </Link>
+                    </div>
+                </div>
+            </PageTransition>
+        );
+    }
+
     const { img, toy_name, sub_category, seller_name, seller_email, price, description, quantity, rating } = toy;
-    useTitle(toy_name || 'Toy Details');
 
     const facts = [
         { icon: <FaTags />, label: 'Category', value: sub_category },
