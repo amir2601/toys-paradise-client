@@ -34,7 +34,7 @@ const Footer = () => {
     ];
 
     const socials = [
-        { icon: <FaFacebookF />, href: 'https://www.facebook.com/riad.vai.2601', label: 'Facebook' },
+        { icon: <FaFacebookF />, href: 'https://www.facebook.com/amirhossinriad', label: 'Facebook' },
         { icon: <FaInstagram />, href: 'https://www.instagram.com/amir_hossin_.riad/', label: 'Instagram' },
         { icon: <FaLinkedinIn />, href: 'https://www.linkedin.com/in/amir-hossin-riad/', label: 'LinkedIn' },
     ];
