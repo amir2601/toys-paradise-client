@@ -123,7 +123,7 @@ const Register = () => {
                             </div>
                             <div className="form-control pt-2">
                                 <input
-                                    className="btn btn-shine pressable w-full rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 py-3 text-base font-bold text-white shadow-soft transition-all duration-300 hover:shadow-lift"
+                                    className="btn btn-shine pressable w-full rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 text-base font-bold text-white shadow-soft transition-all duration-300 hover:shadow-lift"
                                     type="submit"
                                     value="Sign Up"
                                 />

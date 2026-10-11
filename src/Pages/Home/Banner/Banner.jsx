@@ -98,14 +98,14 @@ const Banner = () => {
                         >
                             <Link
                                 to="/allToys"
-                                className="btn btn-shine pressable group gap-2 rounded-full border-0 bg-amber-400 px-8 py-3.5 text-base font-extrabold text-amber-950 shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-300 hover:shadow-glow-amber"
+                                className="btn btn-shine pressable group gap-2 rounded-full border-0 bg-amber-400 px-8 text-base font-extrabold text-amber-950 shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-300 hover:shadow-glow-amber"
                             >
                                 Explore Toys
                                 <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1.5" />
                             </Link>
                             <Link
                                 to="/allToys"
-                                className="btn pressable group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/40 bg-white/10 px-7 py-3.5 text-base font-bold text-white backdrop-blur transition-all duration-300 hover:border-white hover:bg-white hover:text-violet-700"
+                                className="btn pressable group inline-flex items-center justify-center gap-2.5 rounded-full border border-white/40 bg-white/10 px-7 text-base font-bold text-white backdrop-blur transition-all duration-300 hover:border-white hover:bg-white hover:text-violet-700"
                             >
                                 <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/25 leading-none transition-transform duration-300 group-hover:scale-110">
                                     <FaPlay className="translate-x-px text-[11px]" />

@@ -84,7 +84,7 @@ const Newsletter = () => {
                                         />
                                         <button
                                             type="submit"
-                                            className="btn btn-shine pressable inline-flex items-center justify-center gap-2 rounded-full border-0 bg-amber-400 px-7 py-3.5 text-sm font-extrabold uppercase tracking-wide text-amber-950 shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-300 hover:shadow-glow-amber"
+                                            className="btn btn-shine pressable inline-flex items-center justify-center gap-2 rounded-full border-0 bg-amber-400 px-7 text-sm font-extrabold uppercase tracking-wide text-amber-950 shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-300 hover:shadow-glow-amber"
                                         >
                                             Subscribe
                                             <FaPaperPlane className="transition-transform duration-300 group-hover:translate-x-1" />

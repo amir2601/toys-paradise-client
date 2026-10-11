@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Outlet, useLocation } from 'react-router-dom';
+import { useLocation, useOutlet } from 'react-router-dom';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import Footer from '../Pages/Shared/Footer/Footer';
 import ScrollProgress from '../Components/UI/ScrollProgress';
@@ -10,6 +10,9 @@ import Newsletter from '../Components/UI/Newsletter';
 
 const Main = () => {
     const location = useLocation();
+    // Capture the matched route element so AnimatePresence can keep the
+    // outgoing page mounted with its own content while it animates out.
+    const outlet = useOutlet();
 
     return (
         <div className='flex min-h-screen flex-col bg-base-200'>
@@ -26,7 +29,7 @@ const Main = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.18 }}
                     >
-                        <Outlet />
+                        {outlet}
                     </motion.div>
                 </AnimatePresence>
             </main>

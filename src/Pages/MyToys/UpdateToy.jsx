@@ -105,7 +105,7 @@ const UpdateToy = () => {
                             <textarea className='field-input resize-y' name="description" id="" cols="30" rows="6" defaultValue={toy.description}></textarea>
                         </div>
                         <div className="form-control mt-7">
-                            <button className="btn btn-shine pressable w-full rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 py-3 font-bold text-white shadow-soft transition-all duration-300 hover:shadow-lift sm:w-auto sm:px-12">Update</button>
+                            <button className="btn btn-shine pressable w-full rounded-full border-0 bg-gradient-to-r from-violet-600 to-fuchsia-500 font-bold text-white shadow-soft transition-all duration-300 hover:shadow-lift sm:w-auto sm:px-12">Update</button>
                         </div>
                     </form>
                 </motion.div>

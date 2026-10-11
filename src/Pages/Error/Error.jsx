@@ -56,7 +56,7 @@ const Error = () => {
                             transition={{ delay: 0.45, duration: 0.5 }}
                             className="mt-8 flex flex-wrap items-center justify-center gap-3"
                         >
-                            <Link to="/" className="btn btn-shine pressable group gap-2 rounded-full border-0 bg-amber-400 px-8 py-3 font-bold text-amber-950 shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-300">
+                            <Link to="/" className="btn btn-shine pressable group gap-2 rounded-full border-0 bg-amber-400 px-8 font-bold text-amber-950 shadow-lg shadow-amber-500/30 transition-all duration-300 hover:bg-amber-300">
                                 <FaHome className="transition-transform duration-300 group-hover:-translate-y-0.5" />
                                 Back To Home
                             </Link>
